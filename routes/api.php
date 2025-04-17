@@ -21,10 +21,6 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::post('/login', [AuthController::class, 'login']);
 
-// API Documentation routes
-Route::get('/docs', [SwaggerController::class, 'index'])->name('api.swagger.index');
-Route::get('/docs/json', [SwaggerController::class, 'json'])->name('api.swagger.json');
-
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
     // Auth routes

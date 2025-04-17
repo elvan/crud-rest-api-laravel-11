@@ -4,7 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Tag(
+ *     name="Search",
+ *     description="Search endpoints for external API data"
+ * )
+ */
 class SearchController extends Controller
 {
     /**
@@ -76,6 +83,49 @@ class SearchController extends Controller
      * Search data by name 'Turner Mia'
      *
      * @return \Illuminate\Http\JsonResponse
+     * 
+     * @OA\Get(
+     *     path="/search/name",
+     *     summary="Search by name (Turner Mia)",
+     *     description="Search for records with the name 'Turner Mia' in the external API",
+     *     tags={"Search"},
+     *     security={{"bearerAuth": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="success"),
+     *             @OA\Property(property="count", type="integer", example=1),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(property="NAMA", type="string", example="Turner Mia"),
+     *                     @OA\Property(property="NIM", type="string", example="9352078461"),
+     *                     @OA\Property(property="YMD", type="string", example="20230405"),
+     *                     @OA\Property(property="ALAMAT", type="string", example="Apt. 398 36279 Langworth Trail, Lake Donatoville, TN 99242-0940")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Unauthenticated")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Failed to fetch data from external API")
+     *         )
+     *     )
+     * )
      */
     public function searchByName()
     {
@@ -102,6 +152,49 @@ class SearchController extends Controller
      * Search data by NIM '9352078461'
      *
      * @return \Illuminate\Http\JsonResponse
+     * 
+     * @OA\Get(
+     *     path="/search/nim",
+     *     summary="Search by NIM (9352078461)",
+     *     description="Search for records with the NIM '9352078461' in the external API",
+     *     tags={"Search"},
+     *     security={{"bearerAuth": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="success"),
+     *             @OA\Property(property="count", type="integer", example=1),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(property="NAMA", type="string", example="Turner Mia"),
+     *                     @OA\Property(property="NIM", type="string", example="9352078461"),
+     *                     @OA\Property(property="YMD", type="string", example="20230405"),
+     *                     @OA\Property(property="ALAMAT", type="string", example="Apt. 398 36279 Langworth Trail, Lake Donatoville, TN 99242-0940")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Unauthenticated")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Failed to fetch data from external API")
+     *         )
+     *     )
+     * )
      */
     public function searchByNim()
     {
@@ -128,6 +221,49 @@ class SearchController extends Controller
      * Search data by YMD '20230405'
      *
      * @return \Illuminate\Http\JsonResponse
+     * 
+     * @OA\Get(
+     *     path="/search/ymd",
+     *     summary="Search by YMD (20230405)",
+     *     description="Search for records with the YMD '20230405' in the external API",
+     *     tags={"Search"},
+     *     security={{"bearerAuth": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="success"),
+     *             @OA\Property(property="count", type="integer", example=1),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(property="NAMA", type="string", example="Turner Mia"),
+     *                     @OA\Property(property="NIM", type="string", example="9352078461"),
+     *                     @OA\Property(property="YMD", type="string", example="20230405"),
+     *                     @OA\Property(property="ALAMAT", type="string", example="Apt. 398 36279 Langworth Trail, Lake Donatoville, TN 99242-0940")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Unauthenticated")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Failed to fetch data from external API")
+     *         )
+     *     )
+     * )
      */
     public function searchByYmd()
     {
@@ -155,6 +291,78 @@ class SearchController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
+     * 
+     * @OA\Get(
+     *     path="/search",
+     *     summary="Custom search with parameters",
+     *     description="Search for records with customizable parameters in the external API",
+     *     tags={"Search"},
+     *     security={{"bearerAuth": {}}},
+     *     @OA\Parameter(
+     *         name="nama",
+     *         in="query",
+     *         required=false,
+     *         description="Name to search for",
+     *         @OA\Schema(type="string", example="Turner Mia")
+     *     ),
+     *     @OA\Parameter(
+     *         name="nim",
+     *         in="query",
+     *         required=false,
+     *         description="NIM to search for",
+     *         @OA\Schema(type="string", example="9352078461")
+     *     ),
+     *     @OA\Parameter(
+     *         name="ymd",
+     *         in="query",
+     *         required=false,
+     *         description="YMD to search for",
+     *         @OA\Schema(type="string", example="20230405")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="success"),
+     *             @OA\Property(property="count", type="integer", example=1),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(property="NAMA", type="string", example="Turner Mia"),
+     *                     @OA\Property(property="NIM", type="string", example="9352078461"),
+     *                     @OA\Property(property="YMD", type="string", example="20230405"),
+     *                     @OA\Property(property="ALAMAT", type="string", example="Apt. 398 36279 Langworth Trail, Lake Donatoville, TN 99242-0940")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad request",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="At least one search parameter (nama, nim, or ymd) is required")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthorized",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Unauthenticated")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="error"),
+     *             @OA\Property(property="message", type="string", example="Failed to fetch data from external API")
+     *         )
+     *     )
+     * )
      */
     public function search(Request $request)
     {

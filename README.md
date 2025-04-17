@@ -84,6 +84,28 @@ Setelah aplikasi berjalan, Anda dapat mengakses dokumentasi Swagger di:
 http://localhost:8000/api/docs
 ```
 
+### 6. Konfigurasi Swagger
+Aplikasi ini menggunakan l5-swagger untuk dokumentasi API. Konfigurasi berikut telah diterapkan di file `.env`:
+
+```
+# L5 Swagger Configuration
+L5_SWAGGER_CONST_HOST=https://crud-rest-api-laravel-11.test/api
+L5_SWAGGER_GENERATE_ALWAYS=true
+L5_SWAGGER_GENERATE_YAML_COPY=false
+L5_SWAGGER_UI_DOC_EXPANSION=list
+L5_SWAGGER_UI_FILTERS=true
+L5_SWAGGER_UI_DARK_MODE=false
+L5_SWAGGER_UI_PERSIST_AUTHORIZATION=true
+L5_SWAGGER_OPERATIONS_SORT=alpha
+L5_FORMAT_TO_USE_FOR_DOCS=json
+L5_SWAGGER_USE_ABSOLUTE_PATH=true
+```
+
+Untuk menghasilkan dokumentasi Swagger, gunakan perintah:
+```bash
+php artisan l5-swagger:generate
+```
+
 ## Struktur Proyek
 ```
 .
@@ -101,10 +123,13 @@ http://localhost:8000/api/docs
 ├── routes/
 │   └── api.php           # Definisi rute API
 ├── storage/
-│   └── api-docs/          # Dokumentasi Swagger
+│   └── api-docs/          # Dokumentasi Swagger yang dihasilkan
 ├── resources/
 │   └── views/
-│       └── swagger/        # Tampilan Swagger UI
+│       └── vendor/        
+│           └── l5-swagger/  # Tampilan kustom Swagger UI (opsional)
+├── config/
+│   └── l5-swagger.php    # Konfigurasi Swagger
 ├── .env                   # Konfigurasi lingkungan
 ├── composer.json         # Dependensi Composer
 └── README.md             # Dokumentasi proyek ini
@@ -113,9 +138,9 @@ http://localhost:8000/api/docs
 ## Endpoint API
 
 ### Autentikasi
-- `POST /api/auth/login` - Login pengguna
-- `GET /api/auth/me` - Mendapatkan profil pengguna yang sedang login
-- `POST /api/auth/logout` - Logout pengguna
+- `POST /api/login` - Login pengguna
+- `GET /api/me` - Mendapatkan profil pengguna yang sedang login
+- `POST /api/logout` - Logout pengguna
 
 ### Pengguna
 - `GET /api/users` - Mendapatkan semua pengguna
