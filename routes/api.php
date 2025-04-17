@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\SearchController;
+use App\Http\Controllers\API\SwaggerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,10 @@ use App\Http\Controllers\API\SearchController;
 
 // Public routes
 Route::post('/login', [AuthController::class, 'login']);
+
+// API Documentation routes
+Route::get('/docs', [SwaggerController::class, 'index'])->name('api.swagger.index');
+Route::get('/docs/json', [SwaggerController::class, 'json'])->name('api.swagger.json');
 
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
