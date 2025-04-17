@@ -299,9 +299,21 @@
                 "tags": [
                     "Search"
                 ],
-                "summary": "Search by name (Turner Mia)",
-                "description": "Search for records with the name 'Turner Mia' in the external API",
+                "summary": "Search by name",
+                "description": "Search for records by name in the external API",
                 "operationId": "84e64cd68174fdf0f6ec6a5864f3d107",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Turner Mia"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -400,9 +412,21 @@
                 "tags": [
                     "Search"
                 ],
-                "summary": "Search by NIM (9352078461)",
-                "description": "Search for records with the NIM '9352078461' in the external API",
+                "summary": "Search by NIM",
+                "description": "Search for records by NIM in the external API",
                 "operationId": "24ef65c4716371acff8ca066b8824481",
+                "parameters": [
+                    {
+                        "name": "nim",
+                        "in": "query",
+                        "description": "NIM to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "9352078461"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -501,9 +525,21 @@
                 "tags": [
                     "Search"
                 ],
-                "summary": "Search by YMD (20230405)",
-                "description": "Search for records with the YMD '20230405' in the external API",
+                "summary": "Search by YMD",
+                "description": "Search for records by YMD in the external API",
                 "operationId": "abcf3baf6d7ba4038616d125d380d17c",
+                "parameters": [
+                    {
+                        "name": "ymd",
+                        "in": "query",
+                        "description": "YMD to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "20230405"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
