@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\SearchController;
 use App\Http\Controllers\API\SwaggerController;
+use App\Http\Controllers\API\UserController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +30,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // Auth routes
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    
+
     // User routes - only accessible by admin
     Route::middleware('can:admin')->group(function () {
         Route::apiResource('users', UserController::class);
     });
-    
+
     // Search routes
     Route::prefix('search')->group(function () {
         Route::get('/', [SearchController::class, 'search']);
